@@ -13,7 +13,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "icon": "extension",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "keywords": [
     "directus",
     "directus-extension",
