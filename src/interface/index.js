@@ -1,7 +1,7 @@
 import InterfaceComponent from "./interface.vue";
 
 export default {
-  id: "pdf-manager-interface",
+  id: "flow2pdf-interface",
   name: "Pdf manager interface",
   icon: "print",
   description: "This extension provide a button for downloading pdf",
@@ -54,10 +54,10 @@ export default {
       meta: {
         width: "half",
         interface: "input",
-        default_value: "pdf-manager-default-template.liquid",
+        default_value: "flow2pdf-default-template.liquid",
       },
       schema: {
-        default_value: "pdf-manager-default-template.liquid",
+        default_value: "flow2pdf-default-template.liquid",
       },
     },
     {

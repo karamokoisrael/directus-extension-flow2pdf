@@ -11,7 +11,7 @@
       <v-icon v-if="props.icon" left :name="props.icon" />
       <span v-if="props.label">{{ props.label }}</span>
     </v-button>
-    <div id="pdf-manager-html-container"></div>
+    <div id="flow2pdf-html-container"></div>
   </div>
 </template>
 
@@ -19,7 +19,7 @@
 import { ref, defineProps, onMounted } from "vue";
 import { useApi } from "@directus/extensions-sdk";
 import html2pdf from "html2pdf.js";
-import { html2pdfConfig } from "./config";
+import { html2pdfConfig } from "../config";
 
 const api = useApi();
 const props = defineProps({
@@ -32,7 +32,7 @@ const props = defineProps({
   },
   template: {
     type: String,
-    default: "pdf-manager-default-template.liquid",
+    default: "flow2pdf-default-template.liquid",
   },
   label: {
     type: String,
@@ -130,7 +130,7 @@ async function getPdfData(flowData) {
     template: props.template,
   };
 
-  const response = await api.post("/pdf-manager/print", body);
+  const response = await api.post("/flow2pdf/print", body);
   if (!response.data.html) throw new Error("No data found");
 
   return {

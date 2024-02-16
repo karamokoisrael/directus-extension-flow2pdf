@@ -9,7 +9,7 @@ import { parseLiquidData } from "../libs/file-utils";
 // );
 
 export default defineEndpoint({
-  id: "pdf-manager",
+  id: "flow2pdf",
   handler: (router, { services, database, getSchema, accountability }) => {
     router.post("/print", async (req, res) => {
       const { flow_data, template } = req.body;
