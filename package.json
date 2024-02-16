@@ -1,0 +1,55 @@
+{
+  "name": "@megamax-dev/directus-extension-flow2pdf",
+  "description": "This extension allows you to print pdfs from flows",
+	"author": {
+		"name": "Israel Karamoko",
+		"email": "contact@karamokoisrael.tech"
+	  },
+	  "repository": {
+		"type": "git",
+		"url": "urlToYourRepository"
+	  },
+	  "publishConfig": {
+		"registry": "https://npm.pkg.github.com/megamax-dev"
+	  },
+  "icon": "extension",
+  "version": "1.0.0",
+  "keywords": [
+    "directus",
+    "directus-extension",
+    "directus-custom-bundle"
+  ],
+  "type": "module",
+  "directus:extension": {
+    "type": "bundle",
+    "path": {
+      "app": "dist/app.js",
+      "api": "dist/api.js"
+    },
+    "entries": [
+      {
+        "type": "interface",
+        "name": "my-interface",
+        "source": "src/my-interface/index.ts"
+      }
+    ],
+    "host": "^10.3.1"
+  },
+  "scripts": {
+    "build": "directus-extension build",
+    "dev": "directus-extension build -w --no-minify",
+    "link": "directus-extension link",
+    "add": "directus-extension add"
+  },
+  "devDependencies": {
+    "@directus/extensions-sdk": "10.3.1",
+    "node-sass": "^9.0.0",
+    "vue": "^3.4.15"
+  },
+  "dependencies": {
+    "@directus/errors": "^0.2.2",
+    "liquidjs": "^10.10.0",
+    "nanoid": "^5.0.5",
+    "html2pdf.js": "^0.10.1"
+  }
+}
