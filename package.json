@@ -10,7 +10,7 @@
     "url": "https://github.com/karamokoisrael/directus-extension-flow2pdf"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/megamax-dev"
+    "registry": "https://registry.npmjs.org"
   },
   "icon": "extension",
   "version": "1.0.0",
@@ -44,7 +44,8 @@
     "build": "directus-extension build",
     "dev": "directus-extension build -w --no-minify",
     "link": "directus-extension link",
-    "add": "directus-extension add"
+    "add": "directus-extension add",
+    "publish": "npm publish --access=public"
   },
   "devDependencies": {
     "@directus/extensions-sdk": "10.3.1",
