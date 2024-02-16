@@ -1,5 +1,5 @@
 {
-  "name": "@megamax-dev/directus-extension-flow2pdf",
+  "name": "directus-extension-flow2pdf",
   "description": "This extension allows you to print pdfs from directus flows",
   "author": {
     "name": "Israel Karamoko",
@@ -13,7 +13,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "icon": "extension",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [
     "directus",
     "directus-extension",
@@ -45,7 +45,7 @@
     "dev": "directus-extension build -w --no-minify",
     "link": "directus-extension link",
     "add": "directus-extension add",
-    "publish": "npm publish --access=public"
+    "push": "npm run build && npm publish --access=public"
   },
   "devDependencies": {
     "@directus/extensions-sdk": "10.3.1",

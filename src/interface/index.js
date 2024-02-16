@@ -2,7 +2,7 @@ import InterfaceComponent from "./interface.vue";
 
 export default {
   id: "flow2pdf-interface",
-  name: "Pdf manager interface",
+  name: "Flow2pdf",
   icon: "print",
   description: "This extension provide a button for downloading pdf",
   component: InterfaceComponent,
