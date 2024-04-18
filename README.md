@@ -14,6 +14,10 @@ All configurations are available in the pdf manager interface.
 
 # Configuration
 
+- Create a flow with `Webhook` trigger and set the method as `POST`, now copy the `id` of the flow.
+- Create a `button Links` field in the desired collection and choose `Flow2PDF` as the interface.
+- Add `extensions/template` directory and add your `.liquid` template.
+
 ![Configs](./images/configurations.png "Configurations")
 
 - `Flow Id`: Id of the flow you will be collecting data from ( The last operation of your from should return some json data ).
