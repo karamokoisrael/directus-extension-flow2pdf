@@ -20,7 +20,7 @@ All configurations are available in the pdf manager interface.
 
 ![Configs](./images/configurations.png "Configurations")
 
-- `Flow Id`: Id of the flow you will be collecting data from ( The last operation of your from should return some json data ).
+- `Flow Id`: Id of the flow you will be collecting data from ( The last operation of your flow should return some json data ).
 - `Behavior`: Accepts two values
   - `print`: To print the document from your printer
   - `download`: To download the pdf
