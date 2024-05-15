@@ -9,15 +9,24 @@
     "type": "git",
     "url": "https://github.com/karamokoisrael/directus-extension-flow2pdf"
   },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/karamokoisrael/directus-extension-flow2pdf/issues"
+  },
+  "homepage": "https://github.com/karamokoisrael/directus-extension-flow2pdf",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
   "icon": "extension",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "keywords": [
     "directus",
     "directus-extension",
-    "directus-custom-bundle"
+    "directus-custom-interface",
+    "flow2pdf",
+    "flow",
+    "pdf",
+    "preview"
   ],
   "type": "module",
   "directus:extension": {
@@ -38,7 +47,7 @@
         "source": "src/endpoint/index.js"
       }
     ],
-    "host": "^10.3.1"
+    "host": "^10.11.0"
   },
   "scripts": {
     "build": "directus-extension build",
