@@ -1,16 +1,17 @@
 <template>
   <div class="presentation-links">
-    <v-button
-      class="action"
-      :class="[props.type]"
-      :secondary="props.type !== 'primary'"
+    <VButton
+      :primary="props.button_type == 'primary'"
+      :secondary="props.button_type == 'secondary'"
+      :warning="props.button_type == 'warning'"
+      :danger="props.button_type == 'danger'"
       :icon="!props.label"
       :loading="loading"
       @click="print"
     >
       <v-icon v-if="props.icon" left :name="props.icon" />
       <span v-if="props.label">{{ props.label }}</span>
-    </v-button>
+    </VButton>
     <div id="flow2pdf-html-container"></div>
   </div>
 </template>
@@ -42,9 +43,9 @@ const props = defineProps({
     type: String,
     default: "print",
   },
-  type: {
+  button_type: {
     type: String,
-    default: "normal",
+    default: "primary",
   },
 });
 
@@ -63,20 +64,42 @@ const queryParams = ref({
   item: "",
 });
 
+function downloadPdf(pdfData) {
+  const container = document.createElement("div");
+  container.innerHTML = pdfData.html;
+  html2pdf(container, {
+    ...html2pdfConfig,
+    filename: html2pdfConfig.fileName || pdfData.fileName,
+  });
+}
+
+function previewPdf(pdfData) {
+  const newWindow = window.open("", "_blank");
+  newWindow.document.write(pdfData.html);
+  newWindow.document.close();
+}
+
 async function print() {
   try {
     loading.value = true;
     const flowData = await getFlowData();
     const pdfData = await getPdfData(flowData);
+
+    switch (props.behavior) {
+      case "print":
+        sendDivToPrinter(pdfData.html);
+        break;
+      case "download":
+        downloadPdf(pdfData);
+        break;
+      case "preview":
+        previewPdf(pdfData);
+        break;
+      default:
+        break;
+    }
     if (props.behavior == "print") {
-      sendDivToPrinter(pdfData.html);
     } else {
-      const container = document.createElement("div");
-      container.innerHTML = pdfData.html;
-      html2pdf(container, {
-        ...html2pdfConfig,
-        filename: html2pdfConfig.fileName || pdfData.fileName,
-      });
     }
   } catch (error) {
     console.log(error);
@@ -145,36 +168,5 @@ async function getPdfData(flowData) {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-}
-
-.action {
-  &.info {
-    --v-button-background-color: var(--blue);
-    --v-button-background-color-hover: var(--blue-125);
-    --v-button-color: var(--blue-alt);
-    --v-button-color-hover: var(--blue-alt);
-  }
-
-  &.success {
-    --v-button-background-color: var(--theme--success);
-    --v-button-background-color-hover: var(--success-125);
-    --v-button-color: var(--success-alt);
-    --v-button-color-hover: var(--success-alt);
-  }
-
-  &.warning {
-    --v-button-background-color: var(--theme--warning);
-    --v-button-background-color-hover: var(--warning-125);
-    --v-button-color: var(--warning-alt);
-    --v-button-color-hover: var(--warning-alt);
-  }
-
-  &.danger {
-    --v-button-icon-color: var(--white);
-    --v-button-background-color: var(--theme--danger);
-    --v-button-background-color-hover: var(--danger-125);
-    --v-button-color: var(--danger-alt);
-    --v-button-color-hover: var(--danger-alt);
-  }
 }
 </style>

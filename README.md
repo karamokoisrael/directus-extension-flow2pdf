@@ -14,17 +14,17 @@ All configurations are available in the pdf manager interface.
 
 # Configuration
 
- - Create a Flow with `Webhook` trigger and set the method as `POST`, now copy the `id` of the Flow.
- - Create a `Button Links` field in the desired collection and choose `Flow2PDF` as the interface.
- - Create `extensions/template` directory and add your `.liquid` template.
- 
- ![Configs](./images/configurations.png "Configurations")
- 
- - `Flow Id`: Id of the Flow you will be collecting data from (Note: the last operation of your Flow should return some JSON data ).
- - `Behavior`: Accepts two values
-   - `print`: To print the document from your printer
-   - `download`: To download the document as PDF
+- Create a Flow with `Webhook` trigger and set the method as `POST`, now copy the `id` of the Flow. Make sure that the trigger is not asynchronous.
+- Create a `Button Links` field in the desired collection and choose `Flow2PDF` as the interface.
+- Create `extensions/template` directory and add your `.liquid` template.
+
+![Configs](./images/configurations.png "Configurations")
+
+- `Flow Id`: Id of the Flow you will be collecting data from (Note: the last operation of your Flow should return some JSON data ).
+- `Behavior`: Accepts two values
+  - `print`: To print the document from your printer
+  - `download`: To download the document as PDF
 - `Template`: the name of your liquid js template stored in `extensions/templates` directory. The data from your flow will be passed to the liquid fie.
 - `label`: The label of the button
 - `Icon`: The icon of the button
-- `Type`: The type of the button. Same as directus button links types.
+- `Type`: The type of the button. Accepted values are `active`, `primary`, `secondary`, `warning` and `danger`

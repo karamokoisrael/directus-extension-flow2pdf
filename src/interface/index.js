@@ -42,6 +42,10 @@ export default {
               text: "Download",
               value: "download",
             },
+            {
+              text: "Preview",
+              value: "preview",
+            },
           ],
         },
         default_value: "download",
@@ -90,26 +94,24 @@ export default {
       },
     },
     {
-      field: "type",
+      field: "button_type",
       name: "Type",
       type: "string",
       meta: {
         width: "half",
         interface: "select-dropdown",
-        default_value: "normal",
+        default_value: "primary",
         options: {
           choices: [
             { text: "$t:primary", value: "primary" },
-            { text: "$t:normal", value: "normal" },
-            { text: "$t:info", value: "info" },
-            { text: "$t:success", value: "success" },
+            { text: "$t:secondary", value: "secondary" },
             { text: "$t:warning", value: "warning" },
             { text: "$t:danger", value: "danger" },
           ],
         },
       },
       schema: {
-        default_value: "normal",
+        default_value: "primary",
       },
     },
   ],
