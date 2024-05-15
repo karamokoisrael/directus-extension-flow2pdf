@@ -27,4 +27,6 @@ All configurations are available in the pdf manager interface.
 - `Template`: the name of your liquid js template stored in `extensions/templates` directory. The data from your flow will be passed to the liquid fie.
 - `label`: The label of the button
 - `Icon`: The icon of the button
-- `Type`: The type of the button. Accepted values are `active`, `primary`, `secondary`, `warning` and `danger`
+- `Type`: The type of the button. Accepted values are `primary`, `secondary`, `warning` and `danger`
+
+- PS: You can add `MARKETPLACE_TRUST="all"` option in your directus env variables to make sure that you can see this extension in the directus marketplace.

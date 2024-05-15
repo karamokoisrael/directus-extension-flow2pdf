@@ -19,6 +19,9 @@
   },
   "icon": "extension",
   "version": "1.0.3",
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "directus",
     "directus-extension",
@@ -47,7 +50,7 @@
         "source": "src/endpoint/index.js"
       }
     ],
-    "host": "^10.11.0"
+    "host": "^10.3.1"
   },
   "scripts": {
     "build": "directus-extension build",
