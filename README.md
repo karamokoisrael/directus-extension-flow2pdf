@@ -18,7 +18,7 @@ All configurations are available in the pdf manager interface.
 - Create a `Button Links` field in the desired collection and choose `Flow2PDF` as the interface.
 - Create `extensions/template` directory and add your `.liquid` template.
 
-![Configs](./images/configurations.png "Configurations")
+![Configs](https://github.com/karamokoisrael/directus-extension-flow2pdf/raw/master/screenshot.png "Configurations")
 
 - `Flow Id`: Id of the Flow you will be collecting data from (Note: the last operation of your Flow should return some JSON data ).
 - `Behavior`: Accepts two values
@@ -29,4 +29,6 @@ All configurations are available in the pdf manager interface.
 - `Icon`: The icon of the button
 - `Type`: The type of the button. Accepted values are `primary`, `secondary`, `warning` and `danger`
 
-- PS: You can add `MARKETPLACE_TRUST="all"` option in your directus env variables to make sure that you can see this extension in the directus marketplace.
+# Extra
+
+- You can add `MARKETPLACE_TRUST="all"` option in your directus env variables to be able to browser API/Hybrid extensions within the marketplace section of your directus app.
