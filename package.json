@@ -48,6 +48,14 @@
         "type": "endpoint",
         "name": "flow2pdf-endpoint",
         "source": "src/endpoint/index.js"
+      },
+      {
+        "type": "operation",
+        "name": "flow2pdf-operation",
+        "source": {
+          "app": "src/operation/app.js",
+          "api": "src/operation/api.js"
+        }
       }
     ],
     "host": "^10.3.1"
@@ -62,12 +70,14 @@
   "devDependencies": {
     "@directus/extensions-sdk": "10.3.1",
     "node-sass": "^9.0.0",
-    "vue": "^3.4.15"
+    "vue": "^3.4.31"
   },
   "dependencies": {
-    "@directus/errors": "^0.2.2",
+    "@directus/errors": "^0.2.4",
+    "html-pdf-node": "^1.0.8",
+    "html2pdf.js": "^0.10.1",
     "liquidjs": "^10.10.0",
     "nanoid": "^5.0.5",
-    "html2pdf.js": "^0.10.1"
+    "uuid": "^10.0.0"
   }
 }
