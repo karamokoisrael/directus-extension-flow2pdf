@@ -18,7 +18,7 @@ Find the configurations for each interface type below
 - Create a `Button Links` field in the desired collection and choose `Flow2PDF` as the interface.
 - Create `extensions/template` directory and add your `.liquid` template.
 
-![Interface Configuration](./images/interface-configuration.png "Configurations")
+![Interface Configuration](https://github.com/karamokoisrael/directus-extension-flow2pdf/blob/master/images/interface-configuration.png?raw=true "Configurations")
 
 - `Flow Id`: Id of the Flow you will be collecting data from (Note: the last operation of your Flow should return some JSON data ).
 - `Behavior`: Accepts two values
@@ -65,11 +65,12 @@ Find the configurations for each interface type below
 
 - You can then use the payload to send a mail or a notification to any in your database.
 
-![Interface Configuration](./images/operation-configuration.png "Configurations")
+![Interface Configuration](https://github.com/karamokoisrael/directus-extension-flow2pdf/blob/master/images/operation-configuration.png?raw=true "Configurations")
 
 - `Template`: the name of your liquid js template stored in `extensions/templates` directory. The data from your last operation will be passed to the liquid file.
 
 # Extra
 
-- You can add `MARKETPLACE_TRUST="all"` option in your directus env variables to be able to browser API/Hybrid extensions within the marketplace section of your directus app.
+<!-- - You can add `MARKETPLACE_TRUST="all"` option in your directus env variables to be able to browser API/Hybrid extensions within the marketplace section of your directus app. -->
+- This extension should preferably be installed using a package manager like npm, pnpm, or yarn due to reported issues with installations through the Directus marketplace.
 ```
