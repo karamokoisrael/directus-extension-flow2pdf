@@ -7,7 +7,6 @@ export default {
   handler: async ({ template }, context) => {
     const { data } = context;
     try {
-      console.log(template);
       const flowData = data["$last"];
       const text = await parseLiquidData(flowData, template);
       return await saveOperationPdfFile(text, context);
