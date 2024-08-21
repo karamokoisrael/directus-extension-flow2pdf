@@ -17,11 +17,12 @@ export default {
       meta: {
         width: "half",
         interface: "input",
-        default_value: "flow2pdf-default-template.liquid",
+        description:
+          "The template file name stored in the extensions directory like flow2pdf-default-template.liquid",
       },
-      schema: {
-        default_value: "flow2pdf-default-template.liquid",
-      },
+      // schema: {
+      //   default_value: "flow2pdf-default-template.liquid",
+      // },
     },
   ],
 };

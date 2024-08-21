@@ -6,6 +6,7 @@ import { Liquid } from "liquidjs";
  * @returns {Promise<string>}
  */
 function readTemplateFile(fileName) {
+  console.log(fileName)
   const filePath = `./extensions/templates/${fileName}`;
   return new Promise((resolve, reject) => {
     readFile(filePath, "utf8", (error, data) => {
