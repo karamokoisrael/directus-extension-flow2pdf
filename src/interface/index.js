@@ -114,5 +114,21 @@ export default {
         default_value: "primary",
       },
     },
+    {
+      field: "pdf_options",
+      name: "Pdf options",
+      type: "json",
+      meta: {
+        width: "full",
+        interface: "code",
+      },
+      schema: {
+        default_value: {
+          margin: 1,
+          image: { type: "jpeg", quality: 0.98 },
+          html2canvas: { scale: 2 },
+        },
+      },
+    },
   ],
 };
