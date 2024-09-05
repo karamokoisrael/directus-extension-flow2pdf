@@ -42,6 +42,21 @@ Find the configurations for each interface type below
 
 - `Template`: the name of your liquid js template stored in `extensions/templates` directory. The data from your last operation will be passed to the liquid file.
 
+
+
+# API endpoint
+
+If you want to print a pdf from you own app (Vuejs, Reactjs, Angular...), you can use the exposed endpoint `flow2pdf/print`
+- Trigger the flow using the extension sdk [Guide to trigger a flow](https://docs.directus.io/reference/system/flows.html#flow-with-post-webhook-trigger)
+
+- Run a POST request to the following endpoint `http://your-directus-instance.com/flow2pdf/print` [Guide run POST request on custom Directus endpoint](https://docs.directus.io/guides/sdk/getting-started.html#directus-javascript-sdk)
+- The body should match format `{ "flow_data": { "property1": "value1", "property2": "value2" }, "template": "path to your template" }`
+  - `flow_data` should contained the response you received after the flow was triggered
+  - `template` is the path to your liquid file
+- If the request is successful you'll get a response with the following format `{"html": "The corresponding html"}`
+- You can then use `html2pdf.js` to transform the html output to a pdf
+
+
 # Extra
 
 - You can add `MARKETPLACE_TRUST="all"` option in your directus env variables to be able to browser API/Hybrid extensions within the marketplace section of your directus app.
