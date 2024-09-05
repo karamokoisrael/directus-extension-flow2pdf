@@ -47,6 +47,10 @@ const props = defineProps({
     type: String,
     default: "primary",
   },
+  pdf_options: {
+    type: Object,
+    default: () => html2pdfConfig,
+  },
 });
 
 onMounted(() => {
@@ -68,7 +72,7 @@ function downloadPdf(pdfData) {
   const container = document.createElement("div");
   container.innerHTML = pdfData.html;
   html2pdf(container, {
-    ...html2pdfConfig,
+    ...props.pdf_options,
     filename: html2pdfConfig.fileName || pdfData.fileName,
   });
 }

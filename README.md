@@ -28,49 +28,21 @@ Find the configurations for each interface type below
 - `label`: The label of the button
 - `Icon`: The icon of the button
 - `Type`: The type of the button. Accepted values are `primary`, `secondary`, `warning` and `danger`
+- `Pdf Options`: Options to customize the generated pdf. You should provide a json with the following parameters:
 
-# Operation Configuration
+|Name        |Type            |Default                         |Description                                                                                                 |
+|------------|----------------|--------------------------------|------------------------------------------------------------------------------------------------------------|
+|margin      |number or array |`0`                             |PDF margin (in jsPDF units). Can be a single number, `[vMargin, hMargin]`, or `[top, left, bottom, right]`. |
+|pagebreak   |object          |`{mode: ['css', 'legacy']}`     |Controls the pagebreak behaviour on the page. See [Page-breaks](#page-breaks) below.                        |
+|image       |object          |`{type: 'jpeg', quality: 0.95}` |The image type and quality used to generate the PDF. See [Image type and quality](#image-type-and-quality) below.|
+|enableLinks |boolean         |`true`                          |If enabled, PDF hyperlinks are automatically added ontop of all anchor tags.                                |
+|html2canvas |object          |`{ }`                           |Configuration options sent directly to `html2canvas` ([see here](https://html2canvas.hertzen.com/configuration) for usage).|
+|jsPDF       |object          |`{ }`                           |Configuration options sent directly to `jsPDF` ([see here](http://rawgit.com/MrRio/jsPDF/master/docs/jsPDF.html) for usage).|
 
-- Create your flow and add `the FLow2PDF Operation` to generate a pdf from your flow output
-- Create `extensions/template` directory and add your `.liquid` template.
-- The operation saves the pdf file locally and returns the file payload with the following format 
-```json
-  {
-  "id": "1d6cda32-503d-47b5-b16d-7bc35da61fab",
-  "storage": "local",
-  "filename_disk": "169e5fc5-ab4e-4475-9070-f0b3de30fb83.pdf",
-  "filename_download": "169e5fc5-ab4e-4475-9070-f0b3de30fb83.pdf",
-  "title": "169e5fc5-ab4e-4475-9070-f0b3de30fb83.pdf",
-  "type": "application/pdf",
-  "folder": null,
-  "uploaded_by": "199def52-8491-4049-ac05-d83b06087f83",
-  "uploaded_on": "2024-07-14T11:59:21",
-  "modified_by": null,
-  "modified_on": "2024-07-14T03:59:21",
-  "charset": null,
-  "filesize": null,
-  "width": null,
-  "height": null,
-  "duration": null,
-  "embed": null,
-  "description": null,
-  "location": null,
-  "tags": null,
-  "metadata": null,
-  "focal_point_x": null,
-  "focal_point_y": null
-  }
-
-```
-
-- You can then use the payload to send a mail or a notification to any in your database.
-
-![Interface Configuration](https://github.com/karamokoisrael/directus-extension-flow2pdf/blob/master/images/operation-configuration.png?raw=true "Configurations")
 
 - `Template`: the name of your liquid js template stored in `extensions/templates` directory. The data from your last operation will be passed to the liquid file.
 
 # Extra
 
-<!-- - You can add `MARKETPLACE_TRUST="all"` option in your directus env variables to be able to browser API/Hybrid extensions within the marketplace section of your directus app. -->
-- This extension should preferably be installed using a package manager like npm, pnpm, or yarn due to reported issues with installations through the Directus marketplace.
+- You can add `MARKETPLACE_TRUST="all"` option in your directus env variables to be able to browser API/Hybrid extensions within the marketplace section of your directus app.
 ```
