@@ -7,6 +7,8 @@
       :danger="props.button_type == 'danger'"
       :icon="!props.label"
       :loading="loading"
+      :disabled="!hasEdits"
+      :tooltip="!hasEdits ? 'Please save first' : null"
       @click="print"
     >
       <v-icon v-if="props.icon" left :name="props.icon" />
@@ -53,19 +55,48 @@ const props = defineProps({
   },
 });
 
+const hasEdits = ref(false);
+const loading = ref(false);
+const queryParams = ref({
+  collection: "",
+  item: "",
+});
+
+// Function to check if the "Save" button is disabled
+const checkSaveButtonState = () => {
+  const saveButton = document.querySelector('.header-bar button:has([data-icon="check"])');
+  if (saveButton) {
+    hasEdits.value = saveButton.hasAttribute('disabled');
+  } else {
+    hasEdits.value = false;
+  }
+};
+
+// MutationObserver to watch for changes in the "Save" button's disabled state
+const observer = new MutationObserver((mutations) => {
+  mutations.forEach(mutation => {
+    if (mutation.type === 'attributes' && mutation.attributeName === 'disabled') {
+      checkSaveButtonState();
+    }
+  });
+});
+
 onMounted(() => {
+  // Observe the "Save" button for changes to its disabled state
+  const saveButton = document.querySelector('.header-bar button:has([data-icon="check"])');
+  if (saveButton) {
+    observer.observe(saveButton, {
+      attributes: true,
+      attributeFilter: ['disabled'],
+    });
+    checkSaveButtonState(); // Set the initial state of hasEdits
+  }
   const urlParams = window.location.pathname.split("/");
   const lastIndex = urlParams.length - 1;
   queryParams.value = {
     collection: urlParams[lastIndex - 1],
     item: urlParams[lastIndex],
   };
-});
-
-const loading = ref(false);
-const queryParams = ref({
-  collection: "",
-  item: "",
 });
 
 function downloadPdf(pdfData) {
